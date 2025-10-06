@@ -1,5 +1,6 @@
 package io.horizontalsystems.bankwallet.core.managers
 
+import io.horizontalsystems.bankwallet.core.AppLogger
 import io.horizontalsystems.bankwallet.core.adapters.nft.INftAdapter
 import io.horizontalsystems.bankwallet.core.storage.NftStorage
 import io.horizontalsystems.bankwallet.entities.nft.NftAddressMetadata
@@ -14,6 +15,7 @@ class NftMetadataSyncer(
     private val nftMetadataManager: NftMetadataManager,
     private val nftStorage: NftStorage
 ) {
+    private val logger = AppLogger("nft-metadata-sync")
     private val syncThreshold: Long = 1 * 60 * 60 // 1 hour in seconds
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
@@ -61,10 +63,9 @@ class NftMetadataSyncer(
             val addressMetadata = nftMetadataManager.addressMetadata(nftKey.blockchainType, adapter.userAddress)
             handle(addressMetadata, nftKey, currentTimestamp)
         } catch (noProviderError: NftMetadataManager.ProviderError.NoProviderForBlockchainType) {
-            // No provider available for this blockchain type, skip syncing
-            // This is expected for unsupported blockchain types
+
         } catch (error: Throwable) {
-            error.printStackTrace()
+            logger.warning("Failed to sync NFT metadata for ${nftKey.blockchainType.uid}", error)
         }
     }
 
