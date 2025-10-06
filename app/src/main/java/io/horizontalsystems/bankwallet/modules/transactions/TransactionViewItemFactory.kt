@@ -148,7 +148,12 @@ class TransactionViewItemFactory(
                     backPlaceHolder = secondaryValue.coinIconPlaceholder
                 }
 
-                is TransactionValue.JettonValue -> TODO()
+                is TransactionValue.JettonValue -> {
+                    backRectangle = false
+                    backUrl = secondaryValue.coinIconUrl
+                    backAlternativeUrl = secondaryValue.alternativeCoinIconUrl
+                    backPlaceHolder = secondaryValue.coinIconPlaceholder
+                }
             }
         } else {
             backRectangle = false

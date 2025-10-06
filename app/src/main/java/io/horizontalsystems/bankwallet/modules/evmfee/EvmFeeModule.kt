@@ -57,7 +57,7 @@ object EvmFeeModule {
 }
 
 interface IEvmFeeService {
-    val transactionStatusFlow: Flow<DataState<Transaction>>
+    val transactionStatusFlow: Flow<DataState<FeeData>>
 
     fun clear()
     fun reset()
@@ -120,8 +120,8 @@ class RollupGasData(
         get() = super.estimatedFee + l1Fee
 }
 
-//TODO rename to FeeData
-data class Transaction(
+// Renamed from Transaction to FeeData for clarity
+data class FeeData(
     val transactionData: TransactionData,
     val gasData: GasData,
     val default: Boolean,

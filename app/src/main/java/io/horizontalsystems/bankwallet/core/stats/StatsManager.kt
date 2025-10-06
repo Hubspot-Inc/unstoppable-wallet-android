@@ -338,10 +338,10 @@ val TimePeriod.statPeriod: StatPeriod
         TimePeriod.TimePeriod_1D -> StatPeriod.Day1
         TimePeriod.TimePeriod_1W -> StatPeriod.Week1
         TimePeriod.TimePeriod_1M -> StatPeriod.Month1
-        TimePeriod.TimePeriod_2W -> TODO()
-        TimePeriod.TimePeriod_3M -> TODO()
-        TimePeriod.TimePeriod_6M -> TODO()
-        TimePeriod.TimePeriod_1Y -> TODO()
+        TimePeriod.TimePeriod_2W -> StatPeriod.Week2
+        TimePeriod.TimePeriod_3M -> StatPeriod.Month3
+        TimePeriod.TimePeriod_6M -> StatPeriod.Month6
+        TimePeriod.TimePeriod_1Y -> StatPeriod.Year1
     }
 
 val FilterTransactionType.statTab: StatTab

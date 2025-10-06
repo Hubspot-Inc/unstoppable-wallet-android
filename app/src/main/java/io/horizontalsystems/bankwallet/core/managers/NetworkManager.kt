@@ -219,7 +219,8 @@ object APIClient {
             .connectTimeout(timeout, TimeUnit.SECONDS)
             .readTimeout(timeout, TimeUnit.SECONDS)
 
-        //TODO Replace this implementation with Manifest file settings when support for SDK 26 removed
+        // Note: This unsafe implementation is used for backward compatibility with SDK 26
+        // When SDK 26 support is removed, this should be replaced with Manifest file settings
         if (!isSafeCall) // if host name cannot be verified, has no or self signed certificate, do unsafe request
             setUnsafeSocketFactory(httpClient)
 
