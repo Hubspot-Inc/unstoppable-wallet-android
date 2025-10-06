@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import io.horizontalsystems.bankwallet.modules.evmfee.Transaction as TransactionFeeData
+import io.horizontalsystems.bankwallet.modules.evmfee.FeeData as TransactionFeeData
 
 class SendEvmSettingsService(
     private val feeService: IEvmFeeService,

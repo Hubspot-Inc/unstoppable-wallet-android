@@ -16,7 +16,7 @@ import io.horizontalsystems.bankwallet.modules.evmfee.FeeSummaryViewItem
 import io.horizontalsystems.bankwallet.modules.evmfee.FeeViewItem
 import io.horizontalsystems.bankwallet.modules.evmfee.GasPriceInfo
 import io.horizontalsystems.bankwallet.modules.evmfee.IEvmFeeService
-import io.horizontalsystems.bankwallet.modules.evmfee.Transaction
+import io.horizontalsystems.bankwallet.modules.evmfee.FeeData
 import io.horizontalsystems.bankwallet.modules.fee.FeeItem
 import kotlinx.coroutines.launch
 
@@ -60,11 +60,11 @@ class LegacyFeeSettingsViewModel(
         gasPriceService.setGasPrice((currentWeiValue - scale.scaleValue).coerceAtLeast(0))
     }
 
-    private fun syncTransactionStatus(transactionStatus: DataState<Transaction>) {
+    private fun syncTransactionStatus(transactionStatus: DataState<FeeData>) {
         syncFeeViewItems(transactionStatus)
     }
 
-    private fun syncFeeViewItems(transactionStatus: DataState<Transaction>) {
+    private fun syncFeeViewItems(transactionStatus: DataState<FeeData>) {
         val notAvailable = Translator.getString(R.string.NotAvailable)
         when (transactionStatus) {
             DataState.Loading -> {

@@ -63,7 +63,7 @@ class NftMetadataSyncer(
             val addressMetadata = nftMetadataManager.addressMetadata(nftKey.blockchainType, adapter.userAddress)
             handle(addressMetadata, nftKey, currentTimestamp)
         } catch (noProviderError: NftMetadataManager.ProviderError.NoProviderForBlockchainType) {
-            logger.warning("No provider available for blockchain type: ${nftKey.blockchainType.uid}", noProviderError)
+
         } catch (error: Throwable) {
             logger.warning("Failed to sync NFT metadata for ${nftKey.blockchainType.uid}", error)
         }

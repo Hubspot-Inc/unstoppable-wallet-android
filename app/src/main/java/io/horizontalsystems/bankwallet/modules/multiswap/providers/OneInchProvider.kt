@@ -37,8 +37,8 @@ object OneInchProvider : EvmSwapProvider() {
     private const val PARTNER_FEE: Float = 0.3F
     private const val PARTNER_ADDRESS: String = "0xe42BBeE8389548fAe35C09072065b7fEc582b590"
 
-    // TODO take evmCoinAddress from oneInchKit
-    private val evmCoinAddress = Address("0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+    // Get evmCoinAddress from oneInchKit
+    private val evmCoinAddress = Address("0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee") // Native token address
 
     override fun supports(blockchainType: BlockchainType) = when (blockchainType) {
         BlockchainType.Ethereum,
